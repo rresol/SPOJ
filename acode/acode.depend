@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1432272633 source:/home/shashank/code/spoj/acode/main.c
+	<stdio.h>
+	<math.h>
+

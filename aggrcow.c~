@@ -1,0 +1,88 @@
+#include<stdio.h>
+long n,t,i,required=1,test;
+long long sum , high,low ,mid;
+    
+void swap(long long* a, long long* b)
+{
+    long long t = *a;
+    *a = *b;
+    *b = t;
+}
+
+long partition(long long A[],long start,long end)
+{
+	long  pindex,i,temp;
+	long long pivot = A[end];
+	pindex = start -1 ;
+	for(i=start;i<end;i++)
+	{
+		if(A[i]<=pivot)
+		{
+			pindex++;   
+            swap(&A[pindex], &A[i]); 
+		}
+	}
+	swap(&A[pindex+1], &A[end]);
+    return (pindex+1);
+}
+void quicksort(long long A[] ,long start ,long end)
+{
+	if(start<end)
+	{
+		long pindex = partition(A,start,end);
+		quicksort(A,start,pindex-1);
+		quicksort(A,pindex+1,end);
+	}
+	return ;
+}
+
+int main()
+{
+    
+	scanf("%ld",&test);
+    while(test--)
+    {	    
+    scanf("%ld",&t);
+	scanf("%ld",&n);
+	long long folder[t];
+    sum =0;	
+    for(i=0;i<t;i++)
+	{
+		scanf("%lld",&folder[i]);
+        sum += folder[i];
+	}
+		
+    quicksort(folder,0,t-1);
+	
+   
+	low= folder[0];
+	high = folder[t-1];
+	
+	while(low<high)
+	{
+        //printf("low: %lld High: %lld mid: ",low,high);
+        sum =0;
+        required = 1;   
+		mid = low + ((high-low)/2);
+        //printf("%lld\n",mid);		
+        for(i=1;i<t;i++)
+		{   
+			sum+= folder[i]-folder[i-1];
+			if(sum>mid)
+			{
+				required++;
+				sum = folder[i]-folder[i-1];
+			}
+		}
+		if(required<=n)
+		{
+			high = mid;
+		}
+		else
+		{
+			low = mid+1;
+		}
+	}
+	printf("%lld\n",low);
+    }
+}

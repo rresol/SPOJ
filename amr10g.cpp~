@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+#include<stdio.h>
+int main()
+{
+    int t,n,j;
+    scanf("%d",&t);
+    while(t--)
+    {
+        scanf("%d%d",&n,&k);
+        long long a[n],small;
+        for(i=0;i<n;i++)
+        {
+            scanf("%lld",&a[i]);
+        }
+        sort(a,a+n);
+        i=0;
+        j=k;
+        small = 1000000000;
+        while(j<n)
+        {
+            if(small > a[k]-a[i])
+            {
+                small = a[k]-a[i];
+            }
+            i++;
+            j++;
+        }
+            

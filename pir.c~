@@ -1,0 +1,8 @@
+#include<stdio.h>
+int main()
+{
+    scanf("%d",&t);
+    while(t--)
+    {
+        scanf("%f%f%f%f%f%f",&a,&b,&c,&d,&e,&f);
+        

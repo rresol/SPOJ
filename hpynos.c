@@ -1,0 +1,38 @@
+#include<stdio.h>
+int main()
+{
+    long n,temp,r,count =0,first;
+    scanf("%ld",&n);
+    temp = n;
+    while(1)
+    {
+        n = temp;
+        temp = 0;
+        while(n)
+        {
+            r = n%10;
+            temp += (r*r);
+            n/=10;
+        }
+       
+        count ++;
+        if(count == 1)
+        {
+            first = temp;
+        }
+        if(count!=1 && temp == first)
+        {
+            printf("-1\n");
+            return 0;
+        }
+        
+
+        if(temp==1)
+        {
+            printf("%ld\n",count);
+            return 0;
+        }
+    }
+       
+}
+        

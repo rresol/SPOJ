@@ -1,0 +1,35 @@
+#include<stdio.h>
+int main()
+{
+    int n ,i,first,last,sum =0,age =1;
+    scanf("%d",&n);
+    int v[n];
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&v[i]);
+    }
+    int j=0;
+    first = v[j];
+    last = v[n-1];
+    int t =n;   
+    while(j<n)
+    {
+        printf("first :%d last: %d  age :%d sum: %d j:%d n:%d\n",first ,last,age,sum,j,n);
+        if(first<last)
+        {
+            sum+= age*first;
+            j++;
+            first = v[j];
+        }
+        else
+        {
+            sum += age*last;    
+            n = n-1;
+            last = v[n-1];
+                   }
+        age++;
+    }
+    printf("%d\n",sum);
+    return 0;
+}
+        

@@ -1,0 +1,34 @@
+#include<stdio.h>
+
+int main()
+{
+    long t,n,j,i,count;
+    scanf("%ld",&t);
+    while(t--)
+    {
+        count =0;
+        scanf("%ld",&n);
+        long array[n];
+       
+        
+        for(i=0;i<n;i++)
+        {   
+
+            scanf("%ld",&array[i]);
+        }
+        for(i=0;i<n;i++)
+        {
+            for(j=i+1;j<n;j++)
+            {
+                if(array[j]<array[i])
+                {
+                    count++;
+                }
+            }
+        }
+        printf("%ld\n",count);
+        
+        
+    }
+    return 0;   
+}

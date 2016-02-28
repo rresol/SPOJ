@@ -1,0 +1,52 @@
+#include<iostream>
+#include<bits/stdc++.h>
+#include<limits.h>
+int color[1000][1000];
+int MatrixChainOrder(int n)
+{
+
+    int i,j,k,q,l;
+    int m[n][n];
+    for(i=0;i<n;i++)
+    {
+        m[i][i]=0;
+    }
+    for(l=1;l<n;l++)
+    {
+        for(i=0;i<n-l;i++)
+        {
+            //j= i+l-1;
+            m[i][i+l]=100000;
+            for(k=i;k<i+l;k++)
+            {
+                q= m[i][k]+m[k+1][i+l]+color[i][k]*color[k+1][i+l];
+                if(q<m[i][i+l])
+                {
+                    m[i][i+l]= q;
+                    color[i][i+l]=(color[i][k]+color[k+1][i+l])%100;
+                }
+            }
+        }
+    }
+    return m[0][n-1];
+}
+int main()
+{
+    int n,i;
+    while(scanf("%d",&n)==1)
+    {
+    int c[n];
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&c[i]);
+    }
+    for(i=0;i<n;i++)
+    {
+        color[i][i]= c[i];
+    }
+    int a ;
+    a= MatrixChainOrder(n);
+    printf("\n%d\n",a);
+    }
+    return 0;
+}

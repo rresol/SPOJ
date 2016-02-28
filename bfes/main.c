@@ -1,0 +1,112 @@
+#include<stdio.h>
+int main()
+{
+	int g,b;
+	while(1)
+	{
+	scanf("%d",&g);
+	scanf("%d",&b);
+	if(g==-1&&b==-1)
+	{
+		return 0;
+	}
+	if(g>b)
+	{
+
+		if(b)
+		{
+            if(g!=1&&b!=1)
+            {
+
+            if(!(g%b))
+            {
+                printf("%d\n",(g/b));
+            }
+            else
+            {
+			if(!(g%2))
+			{
+				printf ("%d\n",(g/(b+1)));
+			}
+			else
+			{
+				printf("%d\n",((g/(b+1))+1));
+			}
+            }
+            }
+            else
+            {
+                if(g==1&&b==1)
+                {
+                    printf("1\n");
+                }
+                else
+                {
+                    printf("%d\n",(g/2));
+                }
+            }
+		}
+		else
+		{
+			printf("%d\n",g);
+		}
+	}
+	else
+	{
+        if(g==0&&b==0)
+        {
+            printf("%d\n",g);
+
+        }
+        else
+        {
+		if(g!=b)
+		{
+		if(g)
+		{
+            if(g!=1&&b!=1)
+            {
+            if(!(b%g))
+            {
+                printf("%d\n",(b/g));
+            }
+            else
+            {
+			if(!(b%2))
+			{
+				printf("%d\n",(b/(g+1)));
+			}
+			else
+			{
+				printf("%d\n",((b/(g+1))+1));
+			}
+            }
+            }
+            else
+            {
+                if(g==1&&b==1)
+                {
+                    printf("1\n");
+                }
+                else
+                {
+                    printf("%d\n",(b/2));
+                }
+            }
+
+		}
+		else
+		{
+			printf("%d\n",b);
+		}
+		}
+		else
+		{
+
+			printf("1\n");
+		}
+	}
+	}
+	}
+	return 0;
+}
